@@ -21,3 +21,10 @@ h1, h2, p {
 .desc-container {
     text-align: center;
 }
+
+.desc-container img {
+    width: 25%; 
+    height: auto;
+    margin-right: 6.25%;
+    margin-left: 6.25%;   
+}
