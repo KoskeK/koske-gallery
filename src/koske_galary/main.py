@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from koske_galary.config import Config
 from koske_galary.database import db
 from koske_galary.models import User, Gallery, Image
 from flask_login import LoginManager, login_required, login_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
 
 config = Config()
 app = Flask(__name__)
@@ -22,6 +23,18 @@ def load_user(user_id):
 db.init_app(app)
 with app.app_context():
     db.create_all()
+
+def admin_required(view):
+    @wraps(view)
+    def wrapped_view(*args, **kwargs):
+        user = db.session.scalar(db.Select(User))
+
+        if "koske" not in user.username.lower():
+            return "Access denied", 403
+
+        return view(*args, **kwargs)
+
+    return wrapped_view
 
 @app.route("/gallery")
 def gallary():
