@@ -1,65 +1,23 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-body {
-    font-family: sans-serif;
-}
-
-/* Main horizontal gallery */
 .scroll-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 6.25%;
-    
     overflow-x: auto;
-    overflow-y: hidden;
-    
+    white-space: nowrap;
     padding: 10px;
-    box-sizing: border-box;
 }
 
-/* Each gallery item */
-.scroll-container > div {
-    flex: 0 0 25%;
-    box-sizing: border-box;
+.scroll-container div {
+    display: inline-block;
     padding: 10px;
-    
-    text-align: center;
-    white-space: normal;
+    width: 25%; 
+    height: auto;
+    margin-right: 6.25%;
+    margin-left: 6.25%;   
 }
 
-/* Text */
-h1,
-h2,
-p {
+
+h1, h2, p {
     font-family: sans-serif;
 }
 
 .desc-container {
     text-align: center;
-}
-
-/* Images */
-.desc-container img {
-    display: block;
-
-    /* Never make an image wider than its container */
-    max-width: 100%;
-
-    /* Never make an image taller than the available screen */
-    max-height: calc(100vh - 160px);
-
-    /* Let the image keep its original aspect ratio */
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-    
-    margin: 0 auto;
-    box-sizing: border-box;
 }
