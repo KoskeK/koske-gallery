@@ -20,7 +20,8 @@ h1, h2, p {
 
 .desc-container {
     text-align: center;
-    max-width: 100%;
+    max-width: auto;
+    max-height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
