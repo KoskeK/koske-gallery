@@ -23,6 +23,9 @@ h1, h2, p {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .desc-container img {
